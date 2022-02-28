@@ -125,7 +125,7 @@ step.gsmp <- function(m){
 #' @param stopTime modeling time
 #' @return numeric list of the accumulated parameters
 #' @export
-trace <- function(m, numSteps, stopTime) UseMethod("trace",m)
+trace <- function(m, numSteps, stopTime) UseMethod("trace")
 
 #' building trace for GSMP
 #'
