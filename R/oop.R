@@ -69,7 +69,20 @@ isRegeneration <- function(m) UseMethod("isRegeneration",m)
 getPerformance <- function(m) UseMethod("getPerformance",m)
 getRates <- function(m) UseMethod("getRates",m)
 getNewGSMP <- function(m,e) UseMethod("getNewGSMP",m)
+
+#' get active events
+#'
+#' @param m model queueing system
+#' @return list of active events
+#' @export
 getActiveEvents <- function(m) UseMethod("getActiveEvents",m)
+
+#' get new clocks
+#'
+#' @param m model queueing system
+#' @param e list of events
+#' @return list of new clocks
+#' @export
 getNewClocks <- function(m, e) UseMethod("getNewClocks",m)
 
 getTimeDiff <- function(m) UseMethod("getTimeDiff",m)
