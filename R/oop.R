@@ -38,6 +38,15 @@ inc.statacc <- function(a,rdp,rdt){
 #' @return numeric vector of the point estimates
 #' @export
 getRegEst <- function(a,alpha) UseMethod("getRegEst",a)
+
+#' estimation function
+#'
+#' @param a list of accumulated parameters
+#' @param alpha list of added parameters
+#' @return numeric vector of the point estimates
+#' @method getRegEst statacc
+#' @S3method getRegEst statacc
+#' @export
 getRegEst.statacc <- function(a,alpha=0.05){
   stopifnot(class(a)=="statacc",is.numeric(alpha))
   n <- a$nReg
@@ -76,6 +85,7 @@ getNewGSMP <- function(m,e) UseMethod("getNewGSMP",m)
 #' @return list of active events
 #' @export
 getActiveEvents <- function(m) UseMethod("getActiveEvents",m)
+
 
 #' get new clocks
 #'
@@ -118,6 +128,9 @@ step.gsmp <- function(m){
 #' @return numeric list of the accumulated parameters
 #' @export
 trace <- function(m, numSteps, stopTime) UseMethod("trace",m)
+
+#' @method getRegEst statacc
+#' @S3method getRegEst statacc
 trace.gsmp <- function(m, numSteps = 1e5, stopTime = Inf) { # performance calculating function per point
   rdp <- rdt <- dn <- gt <- 0 # dp, rdt, dn - deltas of performance, time and number of steps between regenerations; gt - global time
   s <- statacc() # initialize the accumulator
